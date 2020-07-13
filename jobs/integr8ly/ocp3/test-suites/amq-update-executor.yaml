@@ -9,7 +9,7 @@
     properties:
       - build-discarder:
           num-to-keep: 20
-    parameters:
+parameters:
       - string:
           name: REPOSITORY
           default: 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'
@@ -71,6 +71,12 @@
           default: "tester"
           description: 'Name of newly created users in SSO.'   
       - string:
+          name: GH_USER
+          description: 'Github user name'
+      - string:
+          name: GH_PERSONAL_TOKEN
+          description: 'Github token for the user provided'
+      - string:
           name: NUMBER_OF_USERS
           default: "5"
           description: 'Number of created users (sso-user-create test)'
@@ -80,8 +86,7 @@
           description: 'optionally increase timeout values. If you provide value 2 it means it will be sleeping/waiting two times longer'
       - string:
           name: POLARION_TEMPLATE_ID
-          description: 'Optional: the Polarion test run template id to use to report the test result to Polarion'   
-    dsl: |
+          description: 'Optional: the Polarion test run template id to use to report the test result to Polarion'       dsl: |
         jobParams = [
             string(name: 'REPOSITORY', value: "${REPOSITORY}"),
             string(name: 'BRANCH', value: "${BRANCH}"),
