@@ -7,7 +7,7 @@
     parameters:
       - string:
           name: REPOSITORY
-          default: 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'
+          default: 'file:///Users/tonydavidson/integreatly-qe/'
           description: 'QE repository containing the smoke tests source code.'
       - string:
           name: BRANCH
@@ -54,9 +54,9 @@
         def err = null
         try {
             timeout(20) { 
-                ansiColor('gnome-terminal') { 
+                ansiColor('xterm') { 
                     timestamps {
-                        node('cirhos_rhel7') {        
+                        node('tester') {        
                             stage('Verify input') {
                                 if (!CLUSTER_URL) {
                                     throw new hudson.AbortException('CLUSTER_URL parameter is required!')

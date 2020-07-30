@@ -7,7 +7,7 @@
     parameters:
       - string:
           name: REPOSITORY
-          default: 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'
+          default: 'file:///Users/tonydavidson/integreatly-qe/'
           description: 'QE Git repository URL.'
       - string:
           name: BRANCH
@@ -53,8 +53,8 @@
           default: false
           description: 'defaults to false. When set to true - only final checks of the individual wt2 related tests are checked'
     dsl: |
-        timeout(35) { ansiColor('gnome-terminal') { timestamps {
-            node('cirhos_rhel7'){
+        timeout(35) { ansiColor('xterm') { timestamps {
+            node('tester'){
 
                 Boolean publishTestResults = true
 

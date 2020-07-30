@@ -75,8 +75,8 @@
         String secretFileName = "QE-AWS-SECRET.yml"
         def secretContent
         try {
-            timeout(75) { ansiColor('gnome-terminal') { timestamps {
-                node('cirhos_rhel7') {       
+            timeout(75) { ansiColor('xterm') { timestamps {
+                node('tester') {       
                     stage('Verify input') {
                         if (!YOURCITY) {
                             throw new hudson.AbortException('YOURCITY parameter is required!')

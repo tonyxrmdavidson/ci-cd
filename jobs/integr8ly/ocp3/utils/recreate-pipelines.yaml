@@ -17,9 +17,9 @@
           description: 'Branch of repository to be used.'
     dsl: |
         timeout(60) { 
-            ansiColor('gnome-terminal') { 
+            ansiColor('xterm') { 
                 timestamps {
-                    node('cirhos_rhel7') {
+                    node('tester') {
 
                         stage('Clone repository') {
                             dir('.') {

@@ -26,7 +26,7 @@
             CUSTOMER_ADMIN_PASSWORD=Password1
             GH_CLIENT_ID=yourclientsecret
             GH_CLIENT_SECRET=yourclientsecret
-            TEST_SUITES_REPOSITORY=https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git
+            TEST_SUITES_REPOSITORY=file:///Users/tonydavidson/integreatly-qe/
             TEST_SUITES_BRANCH=v2-master
             RECIPIENTS=integreatly-qe@redhat.com
             COMPUTE_REPLICAS=3
@@ -36,8 +36,8 @@
             NAMESPACE_PREFIX=openshift-
             TO_DO=provision + install + tests + deprovision
     dsl: |
-        timeout(240) { ansiColor('gnome-terminal') { timestamps {
-            node('cirhos_rhel7') {
+        timeout(240) { ansiColor('xterm') { timestamps {
+            node('tester') {
                 stage ('Trigger OSD OCP4 Pipeline') {
                     buildStatus = build(job: 'ocp4-testing-executor', propagate: false, parameters: [
                         string(name: 'CLUSTER_NAME', value: "${CLUSTER_NAME}"),

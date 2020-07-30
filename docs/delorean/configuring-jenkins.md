@@ -101,7 +101,7 @@ If any dependency errors were found, a notification will appear during the confi
 Any dependency errors that are not fixed may cause the configuration process to fail.
 
 ## Node Configuration
-The Delorean jobs require a node labeled as `cirhos_rhel7` and needs to be configured with the following tools and settings
+The Delorean jobs require a node labeled as `tester` and needs to be configured with the following tools and settings
 
 ### Tools
 Tools that needs to be installed:

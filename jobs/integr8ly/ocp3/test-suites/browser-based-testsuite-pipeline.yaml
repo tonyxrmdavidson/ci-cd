@@ -9,7 +9,7 @@
     parameters:
       - string:
           name: REPOSITORY
-          default: 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'
+          default: 'file:///Users/tonydavidson/integreatly-qe/'
           description: 'Repository of the Integreatly Browser based tests'
       - string:
           name: BRANCH
@@ -41,9 +41,9 @@
           default: '1'
           description: 'optionally increase timeout values. If you provide value 2 it means it will be sleeping/waiting two times longer'  
     dsl: |
-        timeout(20) { ansiColor('gnome-terminal') { timestamps {
+        timeout(20) { ansiColor('xterm') { timestamps {
 
-            node('cirhos_rhel7') {  
+            node('tester') {  
 
                 stage('Clone the testsuite') {
                     dir('integreatly-qe') {
@@ -57,7 +57,7 @@
                             try {
                                 sh """
                                 # Disable starting Selenium, Docker is used instead
-                                sed -i 's/"start_process" : true,/"start_process" : false,/g' nightwatch.json
+                                sed -i .bak 's/"start_process" : true,/"start_process" : false,/g' nightwatch.json
                                 rm -rf screenshots reports # so that any leftovers from past builds are not archived
                                 npm config set strict-ssl false
                                 npm install

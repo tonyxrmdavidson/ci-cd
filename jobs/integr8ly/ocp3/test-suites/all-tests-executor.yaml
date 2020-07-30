@@ -12,7 +12,7 @@
     parameters:
       - string:
           name: REPOSITORY
-          default: 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'
+          default: 'file:///Users/tonydavidson/integreatly-qe/'
           description: 'QE repository containing the smoke tests source code.'
       - string:
           name: BRANCH
@@ -114,8 +114,8 @@
         def err = null
         def wtTestStatus;
         try {
-            timeout(180) { ansiColor('gnome-terminal') { timestamps {
-                node('cirhos_rhel7') {
+            timeout(180) { ansiColor('xterm') { timestamps {
+                node('tester') {
                     currentBuild.displayName = "${currentBuild.displayName} ${CLUSTER_URL}"
                     currentBuild.description = "testing branch: ${BRANCH}<br>evals username: ${EVALS_USERNAME}"
                     

@@ -41,7 +41,7 @@ stage("Cluster Options") {
     ]
 }
 
-node('cirhos_rhel7') {
+node('tester') {
     cleanWs()
     stage('Create OpenShift Cluster') {
         println("Create OpenShift Cluster")

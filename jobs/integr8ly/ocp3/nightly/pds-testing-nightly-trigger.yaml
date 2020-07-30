@@ -21,7 +21,7 @@
             RECIPIENTS=integreatly-qe@redhat.com
             INSTALLATION_REPOSITORY=https://github.com/integr8ly/installation.git
             INSTALLATION_BRANCH=master
-            TEST_SUITES_REPOSITORY=https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git
+            TEST_SUITES_REPOSITORY=file:///Users/tonydavidson/integreatly-qe/
             TEST_SUITES_BRANCH=master
             EVALS_USERNAME=evals11@example.com
             ADMIN_USERNAME=admin@example.com
@@ -36,8 +36,8 @@
             PATCH_TO_MASTER=true
             TO_DO=uninstall + install + tests
     dsl: |
-        timeout(270) { ansiColor('gnome-terminal') { timestamps {
-            node('cirhos_rhel7') {
+        timeout(270) { ansiColor('xterm') { timestamps {
+            node('tester') {
                 stage ('Trigger PDS Pipeline') {
                     buildStatus = build(job: 'pds-testing-executor', propagate: false, parameters: [
                         string(name: 'YOURCITY', value: "${YOURCITY}"),

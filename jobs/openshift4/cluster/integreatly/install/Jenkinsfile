@@ -3,8 +3,8 @@
 
 String cluserAPI = "https://api.${CLUSTER_DOMAIN}:6443"
 
-node('cirhos_rhel7') {
-    timeout(60) { ansiColor('gnome-terminal') { timestamps {
+node('tester') {
+    timeout(60) { ansiColor('xterm') { timestamps {
     currentBuild.description = "cluster: ${CLUSTER_DOMAIN}\n"
 
     stage('Login to OpenShift 4 cluster') {

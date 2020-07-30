@@ -1,7 +1,7 @@
 #!groovy
 
 def testOptions = [:]
-final QE_REPO_URL = 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'
+final QE_REPO_URL = 'file:///Users/tonydavidson/integreatly-qe/'
 
 def verifyParameters(testOptions) {
   if (!testOptions.gitUrl || !testOptions.gitBranch) {
@@ -49,7 +49,7 @@ def clusterAdminCredentials = setClusterAdminCredentials()
 pipeline {
   agent {
     node {
-      label 'cirhos_rhel7'
+      label 'tester'
     }
   }
 

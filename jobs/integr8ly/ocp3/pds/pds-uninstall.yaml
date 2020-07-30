@@ -53,8 +53,8 @@
         String bastionLabel = "${BASTION_URL}-slave"
 
         try {
-            timeout(60) { ansiColor('gnome-terminal') { timestamps {
-                node('cirhos_rhel7') {        
+            timeout(60) { ansiColor('xterm') { timestamps {
+                node('tester') {        
                     stage('Verify input') {
                         if (!YOURCITY) {
                             throw new hudson.AbortException('YOURCITY parameter is required!')

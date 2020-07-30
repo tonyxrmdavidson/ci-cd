@@ -12,7 +12,7 @@
     parameters:
       - string:
           name: REPOSITORY
-          default: 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'
+          default: 'file:///Users/tonydavidson/integreatly-qe/'
           description: 'QE repository containing the smoke tests source code.'
       - string:
           name: BRANCH
@@ -98,16 +98,14 @@
             booleanParam(name: 'TESTING_MASTER', value: Boolean.valueOf("${TESTING_MASTER}")),
             string(name: 'WALKTHROUGHS_VERSION', value: "${WALKTHROUGHS_VERSION}"),
             string(name: 'SSO_URL', value: "${SSO_URL}"),
-            string(name: 'GH_USER', value: "${GH_USER}"),
-            string(name: 'GH_PERSONAL_TOKEN', value: "${GH_PERSONAL_TOKEN}"),
             string(name: 'TIMEOUT_THRESHOLD', value: "${TIMEOUT_THRESHOLD}"),
             string(name: 'NUMBER_OF_USERS', value: "${NUMBER_OF_USERS}"),
             string(name: 'USERNAME', value: "${USERNAME}"),
             string(name: 'POLARION_TEMPLATE_ID', value: "${POLARION_TEMPLATE_ID}"),
         ]
         try {
-            timeout(180) { ansiColor('gnome-terminal') { timestamps {
-                node('cirhos_rhel7') {
+            timeout(180) { ansiColor('xterm') { timestamps {
+                node('tester') {
                     currentBuild.displayName = "${currentBuild.displayName} ${CLUSTER_URL}"
                     currentBuild.description = "testing branch: ${BRANCH}<br>evals username: ${EVALS_USERNAME}"
                     

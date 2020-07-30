@@ -18,8 +18,8 @@ def wtTestStatus;
 String adminPassword = params.ADMIN_PASSWORD
 String tempAdmin = "test-user" // used as a temporary admin for customer-admin permissions test and for browser tests
 try {
-    timeout(120) { ansiColor('gnome-terminal') { timestamps {
-        node('cirhos_rhel7') {
+    timeout(120) { ansiColor('xterm') { timestamps {
+        node('tester') {
 
             stage ("Dedicated admin permissions") {
                 sh "oc login ${clusterAPI}:6443 --insecure-skip-tls-verify=true -u ${tempAdmin} -p ${CUSTOMER_ADMIN_PASSWORD}"

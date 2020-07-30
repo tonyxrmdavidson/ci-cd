@@ -7,7 +7,7 @@
     parameters:
       - string:
           name: REPOSITORY
-          default: 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'
+          default: 'file:///Users/tonydavidson/integreatly-qe/'
           description: 'QE repository containing the tests source code.'
       - string:
           name: BRANCH
@@ -59,8 +59,8 @@
         String backupSecret = 's3-credentials'
 
         try {
-            timeout(60) { ansiColor('gnome-terminal') { timestamps {
-                node('cirhos_rhel7') {
+            timeout(60) { ansiColor('xterm') { timestamps {
+                node('tester') {
 
                     stage ('Verify backups has been installed') {
                         

@@ -36,8 +36,8 @@
             default: openshift-
             description: "This value will be used to define the prefix of the names of the namespaces deleted during uninstallation"
     dsl: |
-        timeout(60) { ansiColor('gnome-terminal') { timestamps {
-            node('cirhos_rhel7') {        
+        timeout(60) { ansiColor('xterm') { timestamps {
+            node('tester') {        
                 stage('Verify input') {
                     if (!MASTER_URLS) {
                         throw new hudson.AbortException('MASTER_URLS parameter is required!')

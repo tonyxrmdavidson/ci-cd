@@ -22,7 +22,7 @@
             MANIFEST_VERSION=v1.5
             ROUTER_SHARD=f2d1
             USERNAME=osdtester
-            TEST_SUITES_REPOSITORY=https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git
+            TEST_SUITES_REPOSITORY=file:///Users/tonydavidson/integreatly-qe/
             TEST_SUITES_BRANCH=master
             GH_CLIENT_ID=yourclientid
             GH_CLIENT_SECRET=yourclientsecret
@@ -44,8 +44,8 @@
         def installationStatus 
         def uninstallationStatus
         try {
-            timeout(300) { ansiColor('gnome-terminal') { timestamps {
-                node('cirhos_rhel7') {
+            timeout(300) { ansiColor('xterm') { timestamps {
+                node('tester') {
                     currentBuild.displayName = "${currentBuild.displayName} ${CLUSTER_NAME}"
                     currentBuild.description = "branch: ${INSTALLATION_BRANCH}"
 

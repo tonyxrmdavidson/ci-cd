@@ -7,7 +7,7 @@
     parameters:
       - string:
           name: REPOSITORY
-          default: 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'
+          default: 'file:///Users/tonydavidson/integreatly-qe/'
           description: 'QE Git repository URL.'
       - string:
           name: BRANCH
@@ -43,8 +43,8 @@
           name: POLARION_TEMPLATE_ID
           description: 'Optional: the Polarion test run template id to use to report the test result to Polarion'
     dsl: |
-        timeout(10) { ansiColor('gnome-terminal') { timestamps {
-            node('cirhos_rhel7'){
+        timeout(10) { ansiColor('xterm') { timestamps {
+            node('tester'){
 
                 Boolean publishTestResults = true
 

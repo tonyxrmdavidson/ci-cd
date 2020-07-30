@@ -15,8 +15,8 @@ String adminPassword = ""
 String domainName = ""
 
 try {
-    timeout(240) { ansiColor('gnome-terminal') { timestamps {
-        node('cirhos_rhel7') {
+    timeout(240) { ansiColor('xterm') { timestamps {
+        node('tester') {
             stage("Make sure cluster name is unique") {
                 dir("rhmi-jenkins") {
                     git branch: "master", url: "https://gitlab.cee.redhat.com/integreatly-qe/rhmi-jenkins.git"

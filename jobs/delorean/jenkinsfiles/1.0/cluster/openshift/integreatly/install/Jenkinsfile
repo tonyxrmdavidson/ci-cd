@@ -71,7 +71,7 @@ stage('Pre-install') {
     build job: jobName, parameters: jobParams
 }
 
-node('cirhos_rhel7') {
+node('tester') {
     cleanWs()
     stage('Install Integreatly') {
         if (params.dryRun) {

@@ -18,8 +18,8 @@
             installationGitBranch=master
             dryRun=false
     dsl: |
-        timeout(260) { ansiColor('gnome-terminal') { timestamps {
-            node('cirhos_rhel7') {
+        timeout(260) { ansiColor('xterm') { timestamps {
+            node('tester') {
                 stage ('Trigger Delorean Testing Pipeline') {
                     buildStatus = build(job: 'openshift-cluster-integreatly-test', propagate: false, parameters: [
                         string(name: 'installationGitUrl', value: "${installationGitUrl}"),

@@ -41,8 +41,8 @@
         def clusterAdminCredentials = setClusterAdminCredentials()
 
         try {
-          timeout(180) { ansiColor('gnome-terminal') { timestamps {
-            node('cirhos_rhel7') {
+          timeout(180) { ansiColor('xterm') { timestamps {
+            node('tester') {
               
               stage('Set default parameters') {
                 testOptions.awsAccountName = 'mwcloudservices.AWS'

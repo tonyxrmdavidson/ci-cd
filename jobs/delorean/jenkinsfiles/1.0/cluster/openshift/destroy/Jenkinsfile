@@ -35,7 +35,7 @@ stage("Cluster Options") {
                                 \nawsAccountName: ${deprovisionOptions.awsAccountName}\nclusterDomainName:${deprovisionOptions.clusterDomainName}"""
 }
 
-node('cirhos_rhel7') {
+node('tester') {
   cleanWs()
   stage('Deprovision OpenShift Cluster') {
     if (params.dryRun) {

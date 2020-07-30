@@ -1,5 +1,5 @@
 timeout(30){
-      node("cirhos_rhel7"){
+      node("tester"){
             deleteDir()
 
             withEnv(["GOPATH=$WORKSPACE",

@@ -3,7 +3,7 @@
 def constants = [:]
 
 def prepareConstants(constants){
-  constants.TEST_SUITE_REPO = 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'  
+  constants.TEST_SUITE_REPO = 'file:///Users/tonydavidson/integreatly-qe/'  
   constants.CUSTOMER_ADMIN_USERNAME = 'customer-admin' 
   constants.CUSTOMER_ADMIN_PASSWORD = 'Password1'
   constants.ADMIN_USERNAME = 'admin01'
@@ -51,7 +51,7 @@ def prepareTestParams(constants) {
 pipeline {
   agent {
     node {
-      label 'cirhos_rhel7'
+      label 'tester'
     }
   }
 

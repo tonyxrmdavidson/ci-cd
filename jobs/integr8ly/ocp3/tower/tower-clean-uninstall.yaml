@@ -38,8 +38,8 @@
             return clusterAdminCredentials
         }
 
-        timeout(120) { ansiColor('gnome-terminal') { timestamps {
-            node('cirhos_rhel7') {
+        timeout(120) { ansiColor('xterm') { timestamps {
+            node('tester') {
                 String clusterName = 'qe-uninstall-new'
                 String clusterDomainName = 'tower.cloudservices.rhmw.io'
                 String awsRegion = 'eu-west-2'

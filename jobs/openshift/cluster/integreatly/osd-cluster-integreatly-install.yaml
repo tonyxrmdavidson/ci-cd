@@ -72,7 +72,7 @@
           default: 'QE Tower'
           description: '[REQUIRED] Name of a Tower instance from Ansible Tower plugin in Jenkins'
     dsl: |
-        node('cirhos_rhel7') {
+        node('tester') {
           if (currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')['userId']){
             currentBuild.description = "triggered by: " + currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')['userId']
           }
@@ -109,7 +109,7 @@
           
           stage('Clone QE repository') {
             dir('.') {
-              git branch: "master", url: "https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git"
+              git branch: "master", url: "file:///Users/tonydavidson/integreatly-qe/"
             }
           }
 

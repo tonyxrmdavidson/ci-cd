@@ -52,7 +52,7 @@ stage("Verify Uninstallation Options") {
                                 \ninstallationGitUrl: ${uninstallerOptions.installationGitUrl}\ninstallationGitBranch: ${uninstallerOptions.installationGitBranch}"""
 }
 
-node('cirhos_rhel7') {
+node('tester') {
     cleanWs()
     stage('Uninstall Integreatly') {
         if (params.dryRun) {

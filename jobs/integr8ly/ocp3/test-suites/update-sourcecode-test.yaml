@@ -7,7 +7,7 @@
     parameters:
       - string:
           name: REPOSITORY
-          default: 'https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git'
+          default: 'file:///Users/tonydavidson/integreatly-qe/'
           description: 'QE Git repository URL.'
       - string:
           name: BRANCH
@@ -46,8 +46,8 @@
           default: '1'
           description: 'optionally increase timeout values. If you provide value 2 it means it will be sleeping/waiting two times longer'      
     dsl: |
-        timeout(35) { ansiColor('gnome-terminal') { timestamps {
-            node('cirhos_rhel7'){
+        timeout(35) { ansiColor('xterm') { timestamps {
+            node('tester'){
 
                 Boolean publishTestResults = true
 

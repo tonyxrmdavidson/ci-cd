@@ -17,10 +17,10 @@
           description: The template to use to create the Test Run
     dsl: |
         pipeline { 
-            agent { node { label "cirhos_rhel7" } }
+            agent { node { label "tester" } }
             options {
                 timeout(time: 120, unit: 'MINUTES')
-                ansiColor('gnome-terminal')
+                ansiColor('xterm')
                 timestamps ()
             }
             environment {

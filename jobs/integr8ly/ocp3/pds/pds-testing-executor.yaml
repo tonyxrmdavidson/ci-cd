@@ -45,7 +45,7 @@ This needs to be changed to 'false' for Integreatly Workshop since it uses valid
             description: "Branch for the first uninstall. INSTALLATION_BRANCH used as default if left empty."
         - string:
             name: TEST_SUITES_REPOSITORY
-            default: https://gitlab.cee.redhat.com/integreatly-qe/integreatly-qe.git
+            default: file:///Users/tonydavidson/integreatly-qe/
             description: "Repository of the Integreatly test suites"
         - string:
             name: TEST_SUITES_BRANCH
@@ -115,8 +115,8 @@ This needs to be changed to 'false' for Integreatly Workshop since it uses valid
         def err = null
         
         try {
-            timeout(270) { ansiColor('gnome-terminal') { timestamps {
-                node('cirhos_rhel7') {
+            timeout(270) { ansiColor('xterm') { timestamps {
+                node('tester') {
                     String description = "domain name: ${CLUSTER_DOMAIN}<br>install branch: ${INSTALLATION_BRANCH}<br>" + 
                         "testing master: ${TESTING_MASTER}<br>patch to master: ${PATCH_TO_MASTER}<br>to do: ${TO_DO}"
                     if (currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')['userId']){

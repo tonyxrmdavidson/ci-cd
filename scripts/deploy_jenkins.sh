@@ -8,7 +8,7 @@ for AGENT in jenkins-tools
 do
     AGENT_LABELS="$AGENT ${AGENT/-/ } openshift"
     if [ "$AGENT" = "jenkins-tools" ] ; then
-        AGENT_LABELS="jenkins-tools cirhos_rhel7"
+        AGENT_LABELS="jenkins-tools tester"
     fi
     oc new-app -p AGENT_LABEL="$AGENT_LABELS" -p IMAGE_NAME=jenkins-agent-$AGENT -f  $TEMPLATES_DIR/agent-image-template.yml
 done

@@ -59,7 +59,7 @@ def githubSSHCredentialsID = 'jenkinsgithub'
 def projectsToSync = [:]
 def syncImages = false
 
-node('cirhos_rhel7') {
+node('tester') {
     cleanWs()
     stage('Ensure Sync File Exists') {
         dir('installation') {

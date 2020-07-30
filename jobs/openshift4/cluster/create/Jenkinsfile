@@ -13,8 +13,8 @@ String rootWorkspaceDir = ""
 def err = null
 String adminPassword = ""
 
-node("cirhos_rhel7") {
-    timeout(120) { ansiColor("gnome-terminal") { timestamps {
+node("tester") {
+    timeout(120) { ansiColor("xterm") { timestamps {
         try {
             currentBuild.displayName = "${currentBuild.displayName} ${clusterName}"
             currentBuild.description = "clusterName: ${clusterName}<br>awsRegion: ${awsRegion}"
